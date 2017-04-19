@@ -3,16 +3,16 @@
  * on top of each other. On larger screens, when there are multiple events for
  * a time slot, they should be evenly divided on the same row
  */
+
 .time-slot {
     display: flex;
     border-bottom: 1px solid #666;
     min-height: 3rem;
     box-sizing: border-box;
-
-    /**
-     * TODO: Figure out how not to have a bottom border on the last time-slot
-     * which causes a double border
-     */
+    width: 100%;
+}
+.time-slot:last-child{
+  border-bottom: none;
 }
 .time-slot__hour-label {
     width: 4rem;
@@ -36,5 +36,6 @@
 }
 
 @media screen and (min-width: 50rem) {
+
     /* Override styles for larger screens here */
 }

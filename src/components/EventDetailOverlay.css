@@ -1,7 +1,3 @@
-/*
- * TODO: Overlay container should have rounded corners
- */
-
 .event-detail-overlay {
     position: fixed;
     height: 100%;
@@ -12,8 +8,15 @@
     left: 0;
     box-sizing: border-box;
     padding: 1rem;
+    overflow-y: scroll;
     background-color: rgba(255, 255, 255, 0.25);
 }
+.noscroll {
+  overflow: hidden;
+}
+[aria-hidden="true"] { display: none; }
+[aria-hidden="false"] { display: block; }
+
 @media (min-width: 50rem) {
     .event-detail-overlay {
         height: 12rem;
@@ -27,6 +30,7 @@
     box-sizing: border-box;
     box-shadow: 0 0 0.25rem 0 #666;
     border: 1px solid #666;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     padding: 1rem;
@@ -68,10 +72,20 @@
     width: 1rem;
     vertical-align: sub;
     margin-left: 0.5rem;
-
-    /*
-     * TODO: Figure out how label color can match the event color instead of
-     * always being black
-     */
-    background-color: #000;
+}
+.event-detail-overlay--sky {
+    background-color: #d1e8f0;
+    border-color: #307992;
+}
+.event-detail-overlay--canary {
+    background-color: #fcf69a;
+    border-color: #938a04;
+}
+.event-detail-overlay--rose {
+    background-color: #fcbbd2;
+    border-color: #b00843;
+}
+.event-detail-overlay--shamrock {
+    background-color: #009e60;
+    border-color: #003800;
 }

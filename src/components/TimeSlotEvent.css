@@ -1,7 +1,3 @@
-/*
- * TODO: Time slot events should have rounded corners
- * TODO: Past events should display faded-out
- */
 .time-slot-event {
     display: block;
     cursor: pointer;
@@ -9,9 +5,13 @@
     padding: 0.5rem;
     font-size: 1rem;
     overflow: hidden;
+    border-radius: 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 100%;
+}
+.time-slot-event.fadeOut {
+    opacity: 0.3;
 }
 .time-slot-event::-moz-focus-inner {
   border: 0;
