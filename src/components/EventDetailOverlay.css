@@ -9,12 +9,11 @@
     box-sizing: border-box;
     padding: 1rem;
     overflow-y: scroll;
-    background-color: rgba(255, 255, 255, 0.25);
 }
 .noscroll {
   overflow: hidden;
 }
-[aria-hidden="true"] { display: none; }
+
 [aria-hidden="false"] { display: block; }
 
 @media (min-width: 50rem) {

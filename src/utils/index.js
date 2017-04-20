@@ -10,11 +10,13 @@ const _HOUR_DISPLAY_MAP = [
  * @param {Date} timestamp - The timestamp representing the day to match
  * @returns {array}
  */
-export const filterEventsByDay = (events, timestamp) => {
-    // TODO: Implement day filtering!
 
-    return events;
-}
+export const filterEventsByDay = (events, timestamp) => (
+    events.filter(({start}) => (
+      new Date(start).getDate() === new Date(timestamp).getDate()
+    ))
+);
+
 
 /**
  * Given a list of events and an hour number, filter the events down to those that
@@ -37,10 +39,10 @@ export const filterEventsByHour = (events, hour) => (
  */
 export const getDisplayDate = (timestamp) => {
     let date = new Date(timestamp);
-
-    // TODO: Format the date like: "Tuesday, April 11, 2017"
-
-    return date.toString();
+    //The toLocaleDateString() method returns a string with a language-sensitive representation of the date portion of the date.
+    //en-US represents english
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString("en-US",options); //this returns date in "Tuesday, April 11, 2017" format
 };
 
 /**
@@ -48,8 +50,13 @@ export const getDisplayDate = (timestamp) => {
  * @param {number} hour - The hour
  * @returns {string}
  */
-// TODO: Implement using a more programmatic approach instead of map
-export const getDisplayHour = (hour) => _HOUR_DISPLAY_MAP[hour]
+
+export const getDisplayHour = (hour) => {
+    let timeSuffix = hour >= 12 ? "PM":"AM";
+    //converting 24 hour to 12 hour time and adding PM/AM suffix to it
+    hour = ((hour + 11) % 12 + 1) + timeSuffix;
+    return hour;
+}
 
 /**
  * Given a list of events, returns the event object whose id matches the specified eventId

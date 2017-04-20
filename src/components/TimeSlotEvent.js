@@ -14,12 +14,17 @@ export default class TimeSlotEvent extends PureComponent {
             event: {title, start, color, hours},
             onSelect,
         } = this.props;
-        let startHour = (new Date(start)).getHours();
-        let endHour = startHour + hours;
-        let currentHour = (new Date()).getHours();
+        let endHour = new Date(start).getHours() + hours;
+        let currentHour = new Date().getHours();
 
         const componentClasses = [`time-slot-event time-slot-event--${color}`];
-        if(currentHour >= endHour){
+        //when end hour is in the past for the current date(DD MM YY), fade it out or when the event date is in the past fade it out
+        //TO compare it with current date, have to check for all three: date, month and year.
+        if((new Date().getDate() === new Date(start).getDate()) && (new Date().getMonth() === new Date(start).getMonth()) && (new Date().getFullYear() === new Date(start).getFullYear())) {
+          if(currentHour > endHour){
+            componentClasses.push('fadeOut');
+          }
+        } else if(new Date() > new Date(start)){
           componentClasses.push('fadeOut');
         }
 

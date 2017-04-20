@@ -1,9 +1,3 @@
-/**
- * TODO: Each time slot event should take up the full width and vertically stack
- * on top of each other. On larger screens, when there are multiple events for
- * a time slot, they should be evenly divided on the same row
- */
-
 .time-slot {
     display: flex;
     border-bottom: 1px solid #666;
@@ -36,6 +30,10 @@
 }
 
 @media screen and (min-width: 50rem) {
-
-    /* Override styles for larger screens here */
+    .time-slot__event {
+      display: inline-block;
+      *display: inline; /* For IE7 */
+      zoom: 1;
+      text-align: center;
+    }
 }
