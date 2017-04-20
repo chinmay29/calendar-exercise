@@ -3,6 +3,7 @@ import {EVENT_PROP_TYPE} from './constants';
 import {getDisplayDate, getDisplayHour} from '../utils';
 
 import './EventDetailOverlay.css';
+import './TimeSlotEvent.css';
 
 export default class EventDetailOverlay extends PureComponent {
     _handleClickOutside(event) {
@@ -57,7 +58,7 @@ export default class EventDetailOverlay extends PureComponent {
                     <div>
                         {displayDateTime}
                         <span
-                            className={[`event-detail-overlay--${color}`, "event-detail-overlay__color"].join(' ')}
+                            className={[`time-slot-event--${color}`, "event-detail-overlay__color"].join(' ')}
                             title={`Event label color: ${color}`}
                         />
                     </div>
