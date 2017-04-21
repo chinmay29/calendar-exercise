@@ -13,7 +13,7 @@ const _HOUR_DISPLAY_MAP = [
 
 export const filterEventsByDay = (events, timestamp) => (
     events.filter(({start}) => (
-      new Date(start).getDate() === new Date(timestamp).getDate()
+      new Date(start).getDate() === new Date(timestamp).getDate() && new Date(start).getMonth() === new Date(timestamp).getMonth() && new Date(start).getFullYear() === new Date(timestamp).getFullYear() 
     ))
 );
 

@@ -21,7 +21,7 @@ export default class TimeSlotEvent extends PureComponent {
         //when end hour is in the past for the current date(DD MM YY), fade it out or when the event date is in the past fade it out
         //TO compare it with current date, have to check for all three: date, month and year.
         if((new Date().getDate() === new Date(start).getDate()) && (new Date().getMonth() === new Date(start).getMonth()) && (new Date().getFullYear() === new Date(start).getFullYear())) {
-          if(currentHour > endHour){
+          if(currentHour >= endHour){
             componentClasses.push('fadeOut');
           }
         } else if(new Date() > new Date(start)){
